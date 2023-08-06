@@ -1,4 +1,4 @@
-import DeleteButton from "./deleteButton";
+import SchoolRow from "./schoolRow";
 
 export default function SchoolList({schools, refreshSchools}) {
 
@@ -13,13 +13,11 @@ export default function SchoolList({schools, refreshSchools}) {
             })
     };
 
-    const rows = schools.map(s => <tr key={s.id}>
-        <td className={"p-2"}>{s.name}</td>
-        <td className={"p-2"}><DeleteButton handleDelete={(e) => handleDelete(e, s.id)}/></td>
-    </tr>)
+    const rows = schools.map(s => <SchoolRow key={s.id} school={s} handleDelete={handleDelete}/>)
     return <table>
         <thead>
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Delete</th>
         </tr>

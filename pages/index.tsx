@@ -6,6 +6,7 @@ import TopNav from "../components/topNav";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddSchool from "../components/addSchool";
+import {EditIcon} from "../components/editIcon";
 
 function App() {
     const [schools, setSchools] = useState<ListSchoolSchema>([])
@@ -22,12 +23,12 @@ function App() {
         refreshSchools()
     }, [])
 
-    return [
-        <TopNav></TopNav>,
+    return <><TopNav></TopNav>,
         <Container>
             <Row>
                 <Col>
-                    <div className="h1 my-5">All Schools</div>
+                    <div className="h1 mb-3 mt-5">All Schools</div>
+                    <p className={"text-muted mb-4"}>Click the <EditIcon/> to edit</p>
                     <SchoolList schools={schools} refreshSchools={refreshSchools}/>
                 </Col>
             </Row>
@@ -36,7 +37,7 @@ function App() {
                     <AddSchool refreshSchools={refreshSchools}/>
                 </Col>
             </Row>
-        </Container>];
+        </Container></>;
 }
 
 export default App;
