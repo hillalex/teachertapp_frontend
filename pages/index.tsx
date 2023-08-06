@@ -4,24 +4,24 @@ import {ListSchoolSchema} from "../types/generated";
 import {Col, Container, Row} from "react-bootstrap";
 import TopNav from "../components/topNav";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import AddSchool from "../components/addSchool";
 import {EditIcon} from "../components/editIcon";
 
 function App() {
-    const [schools, setSchools] = useState<ListSchoolSchema>([])
+    const [schools, setSchools] = useState<ListSchoolSchema>([]);
 
     function refreshSchools() {
         fetch(process.env.NEXT_PUBLIC_API_URL + "/school/")
             .then((res) => res.json())
             .then((data) => {
-                setSchools(data)
-            })
+                setSchools(data);
+            });
     }
 
     useEffect(() => {
-        refreshSchools()
-    }, [])
+        refreshSchools();
+    }, []);
 
     return <><TopNav></TopNav>,
         <Container>

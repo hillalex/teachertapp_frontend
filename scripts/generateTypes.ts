@@ -1,4 +1,4 @@
-import { compileFromFile } from 'json-schema-to-typescript'
+import { compileFromFile } from "json-schema-to-typescript";
 import * as fs from "fs";
 import path from "path";
 
@@ -17,7 +17,7 @@ fs.readdir(dir, function (err, files) {
             const typeName = file.split(".")[0];
             try {
                 compileFromFile(filePath, {cwd: dir, bannerComment: ""})
-                    .then(ts => fs.writeFileSync(`/tmp/teachertapp/types/${typeName}.d.ts`, ts))
+                    .then(ts => fs.writeFileSync(`/tmp/teachertapp/types/${typeName}.d.ts`, ts));
             } catch (e) {
                 console.log(e);
             }

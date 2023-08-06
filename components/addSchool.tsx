@@ -1,7 +1,7 @@
 import {Button, Form} from "react-bootstrap";
 import {useState} from "react";
 
-export default function AddSchool({refreshSchools}) {
+export default function AddSchool({refreshSchools}: {refreshSchools: () => void}) {
 
     const [formData, setFormData] = useState({name: ""});
 
@@ -15,8 +15,8 @@ export default function AddSchool({refreshSchools}) {
         fetch(process.env.NEXT_PUBLIC_API_URL + "/school/", {
             method: "POST",
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                "Accept": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(formData),
         })
@@ -24,7 +24,7 @@ export default function AddSchool({refreshSchools}) {
             .then(() => {
                 refreshSchools();
                 setFormData(() => ({name: ""}));
-            })
+            });
     };
 
     return <Form onSubmit={handleSubmit}>
@@ -36,5 +36,5 @@ export default function AddSchool({refreshSchools}) {
         <Button variant="primary" type="submit">
             Add
         </Button>
-    </Form>
+    </Form>;
 }

@@ -13,6 +13,7 @@ else
   branch=$1
 fi
 
+rm -rf $tmp_dir
 mkdir -p $tmp_dir
 wget https://github.com/hillalex/teachertapp/archive/"${branch}".zip -P $tmp_dir
 unzip /tmp/teachertapp/"${branch}".zip -d $tmp_dir

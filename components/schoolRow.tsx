@@ -2,8 +2,12 @@ import {Button, Form, InputGroup} from "react-bootstrap";
 import {EditIcon} from "./editIcon";
 import DeleteButton from "./deleteButton";
 import {useState} from "react";
+import {SchoolSchema} from "../types/generated";
 
-export default function SchoolRow({school, handleDelete}) {
+export default function SchoolRow({
+                                      school,
+                                      handleDelete
+                                  }: { school: SchoolSchema, handleDelete: (event: Event, id: number) => void }) {
 
     const [editing, setEditing] = useState(false);
     const [formData, setFormData] = useState({name: school.name});
@@ -13,7 +17,7 @@ export default function SchoolRow({school, handleDelete}) {
         setFormData(() => ({name: value}));
     };
     const handleSave = () => {
-        alert("Updating not yet supported!")
+        alert("Updating not yet supported!");
     };
 
     function toggleEditing() {
@@ -31,5 +35,5 @@ export default function SchoolRow({school, handleDelete}) {
             <span className={editing ? "d-none" : "d-inline"}>{school.name}</span>
         </td>
         <td className={"p-2"}><DeleteButton handleDelete={(e) => handleDelete(e, school.id)}/></td>
-    </tr>
+    </tr>;
 }
