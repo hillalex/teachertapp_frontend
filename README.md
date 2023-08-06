@@ -1,4 +1,7 @@
 # TeacherTapp Front-end Demo
+![Test](https://github.com/hillalex/teachertapp_frontend/actions/workflows/Test.yml/badge.svg?branch=main)
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+
 This is a simple Next.js + React app for the TeacherTapp coding assignment.
 
 ## Generating types
